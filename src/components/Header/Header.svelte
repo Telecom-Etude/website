@@ -3,6 +3,8 @@
     import imgLogoMenu from "../../website-data/imgs/header/menu.png";
     import Nav from "./Nav.svelte";
     let expanded = false;
+    export let menus = [];
+
 </script>
 
 <header class="navigation w-nav">
@@ -12,7 +14,7 @@
         </a>
         <div class="menu">
             <div class="nav">
-                <Nav expanded={false} />
+                <Nav expanded={false} list={menus} />
             </div>
             <!-- svelte-ignore a11y-click-events-have-key-events -->
             <div
@@ -30,7 +32,7 @@
     </div>
     {#if expanded}
         <div class="w-nav-overlay">
-            <Nav expanded={true} />
+            <Nav expanded={true} list={menus} />
         </div>
     {/if}
 </header>
