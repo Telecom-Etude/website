@@ -1,0 +1,90 @@
+---
+import oiseauJE from "../../website-data/imgs/logo_oiseau_2.svg";
+import ButtonColor from "../ButtonColor.astro";
+import { t } from "i18next";
+---
+
+<div class="flex-wrap">
+    <div class="img"><img id="img-logo" src={oiseauJE} /></div>
+    <div class="text">
+        <div>
+            <h5><span class="text-gradient">{t("start.text1")}</span>{t("start.text2")}</h5>
+            <br />
+            <h6>
+                {t("start.text3")}
+            </h6>
+        </div>
+        <br />
+        <a href={"/contact"} class="href-start">
+            <ButtonColor>{t("start.more")}</ButtonColor>
+        </a>
+    </div>
+</div>
+
+<style>
+    .href-start {
+        text-decoration: none;
+    }
+
+    #img-logo {
+        width: 85%;
+    }
+    .under-explications {
+        width: 70%;
+        display: block;
+        margin: auto;
+        padding-top: 50px;
+        padding-bottom: 50px;
+    }
+    .explications a {
+        display: initial;
+    }
+
+    .text > div {
+        width: 80%;
+        margin: auto;
+    }
+    .img > img {
+        margin: auto;
+    }
+    .flex-wrap {
+        display: flex;
+        margin-bottom: 40px;
+    }
+    .flex-wrap > * {
+        flex: 0.5;
+        display: flex;
+    }
+    .text {
+        display: block;
+        text-align: center;
+        margin: auto;
+    }
+    main {
+        margin: auto;
+        padding: 1.5rem;
+        max-width: 60ch;
+    }
+    h1 {
+        font-size: 3rem;
+        font-weight: 800;
+        margin: 0;
+    }
+    .text-gradient {
+        background-image: var(--accent-gradient);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-size: 100%;
+        background-position: 0%;
+        font-weight: bold;
+        font-size: 1.2em;
+    }
+    @media screen and (max-width: 767px) {
+        .flex-wrap {
+            display: block;
+        }
+        #img-logo {
+            width: 50%;
+        }
+    }
+</style>
