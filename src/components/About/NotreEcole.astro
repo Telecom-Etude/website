@@ -1,0 +1,88 @@
+---
+import imgTP from "../../website-data/imgs/about/tp.jpeg";
+import { t } from "i18next";
+---
+
+<div class="flex">
+    <div class="flex-wrap">
+        <div class="label">{t("about.notre_ecole.title")}</div>
+        <h2 class="head">{t("about.notre_ecole.text")}</h2>
+        <p class="paragraph-light">
+            {t("about.notre_ecole.mot")}<br />
+            <ul>
+                <li>
+                    {t("about.notre_ecole.liste_1_1")}
+                    <strong>{t("about.notre_ecole.liste_1_2")}</strong>
+                    {t("about.notre_ecole.liste_1_3")}<span class="detail">{t("about.notre_ecole.liste_1_4")}</span>{
+                        t("about.notre_ecole.liste_1_5")
+                    }
+                </li>
+                <li>
+                    {t("about.notre_ecole.liste_2_1")}
+                    <strong>
+                        {t("about.notre_ecole.liste_2_2")}
+                    </strong>
+                    {t("about.notre_ecole.liste_2_3")}
+                    <strong>
+                        {t("about.notre_ecole.liste_2_4")}
+                    </strong>
+                    {t("about.notre_ecole.liste_2_5")}<span class="detail">{t("about.notre_ecole.liste_2_6")}</span>{
+                        t("about.notre_ecole.liste_2_7")
+                    }
+                </li>
+                <li>
+                    {t("about.notre_ecole.liste_3_1")}
+                    <strong>{t("about.notre_ecole.liste_3_2")}</strong>
+                    (<span class="detail">Times Higher Education World University Ranking 2021</span>)
+                </li>
+            </ul>
+        </p>
+    </div>
+    <div class="wrop">
+        <img src={imgTP} alt="Télécom Paris" id="image-tp" />
+    </div>
+</div>
+
+<style>
+    .head {
+        word-spacing: 3px;
+        text-align: center;
+    }
+    .flex-wrap {
+        display: flex;
+        flex-direction: column;
+    }
+    .flex-wrap > * {
+        flex: 1;
+    }
+    .label {
+        opacity: 0.6;
+        letter-spacing: 1px;
+        font-weight: bold;
+        text-transform: uppercase;
+    }
+    .wrop {
+        padding: 5px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+    .flex {
+        display: flex;
+    }
+    .flex > * {
+        flex: 1;
+    }
+    #image-tp {
+        border-radius: 20px;
+        width: 100%;
+    }
+    .detail {
+        font-weight: 300;
+    }
+    @media screen and (max-width: 767px) {
+        .flex {
+            display: block;
+        }
+    }
+</style>

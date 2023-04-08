@@ -1,8 +1,8 @@
 <script lang="ts">
     import { fade } from "svelte/transition";
     import OneNumber from "./OneNumber.svelte";
-    import { data } from "./data";
-    import { year } from "../constants";
+    import { data } from "../../website-data/content/chiffres";
+    import { year } from "../../website-data/content/constants";
     export let text: string[] = [];
 </script>
 
