@@ -1,0 +1,3 @@
+[submodule "src/website-data"]
+	path = src/website-data
+	url = git@github.com:Telecom-Etude/website-data.git
