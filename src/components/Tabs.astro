@@ -1,0 +1,106 @@
+---
+const numSlot = Object.keys(Astro.slots).length || 0;
+import { t } from "i18next";
+---
+
+<div class="examples">
+    <input checked="checked" id="tab1" type="radio" name="pct" />
+    <input id="tab2" type="radio" name="pct" />
+    <input id="tab3" type="radio" name="pct" />
+    <div class="menu-examples">
+        {
+            Array.from({ length: numSlot }).map((i, ind) => (
+                <div class={`example-${ind + 1}`}>
+                    <label for={`tab${ind + 1}`}>
+                        {t("tabs.example")} {ind + 1}
+                    </label>
+                </div>
+            ))
+        }
+    </div>
+    <section>
+        {
+            Array.from({ length: numSlot }).map((i, ind) => {
+                // smart ? lol
+                return (
+                    <div class={`tab${ind + 1}`}>
+                        {ind == 0 ? (
+                            <slot name="slot-1" />
+                        ) : ind === 1 ? (
+                            <slot name="slot-2" />
+                        ) : (
+                            <slot name="slot-3" />
+                        )}
+                    </div>
+                );
+            })
+        }
+    </section>
+</div>
+<style>
+    .examples {
+        width: 100%;
+        margin: auto;
+        margin-bottom: 50px;
+    }
+    .menu-examples > * {
+        flex: 1;
+        text-align: center;
+    }
+    .menu-examples label {
+        width: 100%;
+        padding: 15px;
+        display: block;
+        cursor: pointer;
+    }
+    .menu-examples {
+        display: flex;
+    }
+    .examples > input {
+        display: none;
+    }
+    .examples section > div {
+        display: none;
+        border-radius: 4px;
+        box-shadow: 0px 3px 3px -2px rgb(0 0 0 / 20%), 0px 3px 4px 0px rgb(0 0 0 / 14%),
+            0px 1px 8px 0px rgb(0 0 0 / 12%);
+        padding: 10px;
+    }
+    #tab1:checked ~ section .tab1,
+    #tab2:checked ~ section .tab2,
+    #tab3:checked ~ section .tab3 {
+        display: block;
+        border-radius: 4px;
+        border-top-left-radius: 0;
+        border-top-right-radius: 0;
+        background-color: var(--color);
+    }
+    .menu-examples > * {
+        background-color: var(--deg3);
+    }
+    .menu-examples > *:first-child {
+        background-color: var(--deg1);
+        border-top-left-radius: 4px;
+    }
+    .menu-examples > *:last-child {
+        background-color: var(--deg4);
+        border-top-right-radius: 4px;
+    }
+    section > * {
+        --color: var(--deg3);
+    }
+    section > *:first-child {
+        --color: var(--deg1);
+    }
+    section > *:last-child {
+        --color: var(--deg4);
+    }
+    #tab1:checked ~ .menu-examples .example-1,
+    #tab2:checked ~ .menu-examples .example-2,
+    #tab3:checked ~ .menu-examples .example-3 {
+        color: #111;
+        position: relative;
+        border-bottom-left-radius: 0px;
+        border-bottom-right-radius: 0px;
+    }
+</style>

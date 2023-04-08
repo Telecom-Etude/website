@@ -1,0 +1,55 @@
+---
+import Chiffres from "../Chiffres/Chiffres.svelte";
+import Confiance from "../Confiance/Confiance.astro";
+import SpecialData from "../SpecialData/SpecialData.astro";
+import Start from "./Start.astro";
+import Explications from "./Explications.astro";
+import ListeOffres from "./ListeOffres.astro";
+import { t } from "i18next";
+const texts = [
+    t("chiffres.text1"),
+    t("chiffres.text2"),
+    t("chiffres.text3"),
+    t("chiffres.text4"),
+    t("chiffres.text5"),
+    t("chiffres.text6"),
+];
+---
+
+<Start />
+<div class="wrapper-color">
+    <Explications />
+    <div class="centered-container w-container">
+        <Chiffres client:load text={texts} />
+    </div>
+</div>
+<div class="">
+    <SpecialData />
+</div>
+<div class="wrapper-color3">
+    <ListeOffres color="white" />
+</div>
+<div class="wrapper-color4">
+    <Confiance />
+</div>
+<style>
+    .wrapper-color {
+        background-color: var(--deg1);
+        margin-top: 50px;
+        padding-bottom: 50px;
+    }
+    .wrapper-color2 {
+        background-color: var(--deg3);
+        padding-top: 50px;
+        padding-bottom: 50px;
+    }
+    .wrapper-color3 {
+        background-color: var(--deg4);
+        padding-top: 50px;
+        padding-bottom: 50px;
+    }
+    .wrapper-color4 {
+        padding-top: 50px;
+        padding-bottom: 50px;
+    }
+</style>

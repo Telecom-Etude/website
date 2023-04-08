@@ -1,0 +1,11 @@
+---
+import { changeLanguage } from "i18next";
+import Layout from "../layouts/Layout.astro";
+import MentionsLegales from "../components/MentionsLegales.astro";
+
+changeLanguage("fr");
+---
+
+<Layout title="legals.title">
+    <MentionsLegales />
+</Layout>

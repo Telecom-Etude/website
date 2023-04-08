@@ -1,0 +1,134 @@
+---
+export interface Props {
+    color: string;
+}
+import { offres } from "./offres";
+const { color } = Astro.props;
+import { t } from "i18next";
+---
+
+<section style={`--color: ${color || "black"}`}>
+    <div class="up-text">
+        <h6>{t("list_offres.text1")}<span class="under">{t("list_offres.text2")}</span>{t("list_offres.text3")}</h6>
+        <h5>{t("list_offres.text4")}</h5>
+    </div>
+    <div class="list">
+        {
+            offres.map(({ title, href, img, bgColor, accentColor }) => (
+                <a class="ref-offres" href={href}>
+                    <figure
+                        class="cards"
+                        style={`--bg: hsl(${bgColor} calc(60% - (var(--hover) * 10%))); --accent: ${accentColor}`}
+                    >
+                        <img src={img} alt="" />
+
+                        <div>
+                            <span class="title-cards">{title}</span>
+                        </div>
+                    </figure>
+                </a>
+            ))
+        }
+    </div>
+</section>
+
+<style>
+    .under {
+        text-decoration: underline;
+    }
+    .ref-offres {
+        text-decoration: none;
+        display: contents;
+    }
+    .up-text {
+        text-align: center;
+        margin-bottom: 50px;
+    }
+    .up-text h6 {
+        color: var(--color);
+        opacity: 0.7;
+        letter-spacing: 1px;
+        font-weight: bold;
+        font-size: 12px;
+        text-transform: uppercase;
+    }
+    .up-text h5 {
+        color: var(--color);
+        font-weight: 400;
+        font-size: 36px;
+    }
+    .title-cards {
+        font-weight: bold;
+        color: white;
+        font-size: 22px;
+    }
+    h1 {
+        position: fixed;
+        right: 1rem;
+        bottom: 1rem;
+        opacity: 0.5;
+        margin: 0;
+    }
+
+    p {
+        margin: 0;
+    }
+
+    .list {
+        width: 90%;
+        margin: auto;
+        display: flex;
+    }
+
+    .cards {
+        border: 1px solid whitesmoke;
+        cursor: pointer;
+        box-shadow: 0px 2px 1px -1px rgb(0 0 0 / 20%), 0px 1px 1px 0px rgb(0 0 0 / 14%),
+            0px 1px 3px 0px rgb(0 0 0 / 12%);
+        box-shadow: 0px 3px 3px -2px rgb(0 0 0 / 20%), 0px 3px 4px 0px rgb(0 0 0 / 14%),
+            0px 1px 8px 0px rgb(0 0 0 / 12%);
+        transition: background 0.2s;
+        background: radial-gradient(circle at top left, var(--accent), transparent 100%), var(--bg);
+        width: 50%;
+        aspect-ratio: 6 / 5;
+        margin: 5px;
+        padding: 10px;
+        height: 200px;
+        position: relative;
+        overflow: hidden;
+        border-radius: 10px;
+    }
+
+    @media screen and (max-width: 767px) {
+        .cards {
+            height: 200px;
+            width: 100%;
+            margin-bottom: 10px;
+        }
+        .list {
+            display: block;
+        }
+        .up-text {
+            padding: 10px;
+        }
+    }
+
+    img {
+        position: absolute;
+        text-align: center;
+        margin: auto;
+        left: 50%;
+        width: 40%;
+        bottom: 0px;
+        transform: translateX(calc(var(--hover) * -15%)) scale(calc(1 + (var(--hover) * 0.2)));
+        transition: transform 0.2s;
+    }
+
+    .cards {
+        --hover: 0;
+    }
+
+    .cards:hover {
+        --hover: 1;
+    }
+</style>

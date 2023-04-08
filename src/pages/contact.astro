@@ -1,0 +1,11 @@
+---
+import { changeLanguage } from "i18next";
+import Layout from "../layouts/Layout.astro";
+import Contact from "../components/Contact/Contact.svelte";
+
+changeLanguage("fr");
+---
+
+<Layout title="contact.title">
+    <Contact client:load />
+</Layout>

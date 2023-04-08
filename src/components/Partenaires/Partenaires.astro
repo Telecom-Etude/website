@@ -1,0 +1,133 @@
+---
+import { data } from "./data";
+import { t } from "i18next";
+---
+
+<div class="section">
+    <div class="section-heading-wrap">
+        <h2>{t("partenaires.sub-title")}</h2>
+    </div>
+    <div class="container">
+        <div class="flex">
+            {
+                data.map((item: any) => (
+                    <div class="under-flex">
+                        <a href={item.url} class="center" target="_blank">
+                            <img src={item.img} width="202" alt="" class="service-icon" />
+                        </a>
+                        <div class="paragraph-bigger">{item.type}</div>
+                        <div class="paragraph-light" set:html={item.text} />
+                    </div>
+                ))
+            }
+        </div>
+    </div>
+</div>
+
+<style>
+    .flex {
+        display: flex;
+        justify-content: center;
+        margin-bottom: 20px;
+    }
+    .flex > * {
+        flex: 1;
+    }
+    .under-flex {
+        margin: 10px;
+    }
+    .center {
+        text-align: center;
+    }
+    .paragraph-light {
+        opacity: 0.6;
+        text-align: justify;
+    }
+    .paragraph-bigger {
+        margin-bottom: 10px;
+        opacity: 1;
+        font-size: 20px;
+        line-height: 34px;
+        font-weight: 400;
+    }
+    .service-icon {
+        margin-bottom: 30px;
+    }
+    img {
+        display: block;
+        max-width: 100%;
+        vertical-align: middle;
+        display: inline-block;
+        border: 0;
+    }
+    .our-services-grid {
+        margin-bottom: 60px;
+        grid-column-gap: 80px;
+        grid-row-gap: 60px;
+        -ms-grid-rows: auto 60px auto;
+        grid-template-areas:
+            ". . ."
+            ". . .";
+        -ms-grid-columns: 1fr 80px 1fr 80px 1fr;
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+
+    .w-layout-grid {
+        display: -ms-grid;
+        display: grid;
+        grid-auto-columns: 1fr;
+        -ms-grid-columns: 1fr 1fr;
+        grid-template-columns: 1fr 1fr;
+        -ms-grid-rows: auto auto;
+        grid-template-rows: auto auto;
+        grid-row-gap: 16px;
+        grid-column-gap: 16px;
+    }
+    .container {
+        width: 100%;
+        max-width: 1140px;
+        margin-right: auto;
+        margin-left: auto;
+    }
+    h2 {
+        margin-top: 10px;
+        margin-bottom: 10px;
+        font-size: 36px;
+        line-height: 50px;
+        font-weight: 400;
+    }
+    .label.cc-light.centered {
+        text-align: center;
+    }
+
+    .label.cc-light {
+        padding-top: 30px;
+        opacity: 0.6;
+        font-size: 12px;
+        text-align: left;
+    }
+    .label {
+        margin-bottom: 10px;
+        font-size: 12px;
+        line-height: 20px;
+        font-weight: 500;
+        text-align: center;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+    }
+    .section {
+        margin-right: 30px;
+        margin-left: 30px;
+    }
+    .section-heading-wrap {
+        margin-top: 40px;
+        margin-bottom: 40px;
+        text-align: center;
+    }
+    @media screen and (max-width: 767px) {
+        .section {
+            margin-right: 0px;
+            margin-left: 0px;
+        }
+    }
+</style>

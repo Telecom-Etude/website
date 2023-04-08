@@ -11,7 +11,7 @@ Software requirements:
 - [npm](https://www.npmjs.com/)
 
 ```sh
-git clone git@github.com:Telecom-Etude/website.git && git submodule update --recursive --init
+git clone git@github.com:Telecom-Etude/website.git && cd website && git submodule update --recursive --init
 ```
 
 > - note that the `git submodule update` will clone the [https://github.com/Telecom-Etude/website-data](https://github.com/Telecom-Etude/website-data) repository into `src/website-data`

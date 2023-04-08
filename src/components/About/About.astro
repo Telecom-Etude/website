@@ -1,0 +1,70 @@
+---
+import Partenaires from "../../components/Partenaires/Partenaires.astro";
+import Engagement from "./Engagement.astro";
+import MotDuPrez from "./MotDuPrez.astro";
+import NotreEcole from "./NotreEcole.astro";
+import NotreJE from "./NotreJE.astro";
+import { t } from "i18next";
+---
+
+<div class="section">
+    <div class="heading-jumbo-small">
+        <h3>{t("about.header_text")}</h3>
+    </div>
+    <div class="divider"></div>
+    <div class="w-container">
+        <NotreJE />
+        <div class="divider"></div>
+        <NotreEcole />
+        <div class="divider"></div>
+        <div class="w-container">
+            <div class="label cc-light">{t("about.qualite1")}</div>
+            <div class="motto-wrap">
+                <div class="mini-head"><span>{t("about.qualite2")}</span><br /></div>
+            </div>
+        </div>
+        <div class="divider"></div>
+        <MotDuPrez />
+        <div class="divider"></div>
+        <Engagement />
+        <div class="divider"></div>
+        <Partenaires />
+    </div>
+</div>
+
+<style>
+    .divider {
+        height: 1px;
+        background-color: #eee;
+    }
+    .mini-head {
+        font-size: 36px;
+        line-height: 50px;
+        font-weight: 300;
+        text-align: center;
+    }
+    .label {
+        opacity: 0.6;
+        letter-spacing: 1px;
+        font-weight: bold;
+        text-transform: uppercase;
+    }
+    .divider {
+        margin: 40px 0px;
+    }
+    h3 {
+        font-family: Montserrat, sans-serif;
+    }
+    .section {
+        width: 80%;
+        margin: auto;
+    }
+    .motto-wrap {
+        margin: auto;
+    }
+    @media screen and (max-width: 767px) {
+        .section {
+            width: 90%;
+        }
+    }
+</style>

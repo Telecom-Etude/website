@@ -1,0 +1,55 @@
+---
+import imgCNJElogo from "../../website-data/imgs/about/CNJE-logo.png";
+import { t } from "i18next";
+---
+
+<div class="flex">
+    <div class="home-section-wrap">
+        <div class="label">{t("about.engagement.title")}</div>
+        <h2 class="head">{t("about.engagement.title2")}</h2>
+        <p class="paragraph-light">
+            {t("about.engagement.paragraph1")}
+            <strong>
+                {t("about.engagement.paragraph2")}
+            </strong>
+            {t("about.engagement.paragraph3")}
+            <br />
+        </p>
+    </div>
+
+    <div class="wrop">
+        <img src={imgCNJElogo} loading="lazy" width="159" alt="CNJE logo" class="image-16" />
+        <h6 class="heading">{t("about.engagement.cnje")}</h6>
+    </div>
+</div>
+
+<style>
+    .label {
+        opacity: 0.6;
+        letter-spacing: 1px;
+        font-weight: bold;
+        text-transform: uppercase;
+    }
+    .head {
+        text-transform: uppercase;
+        word-spacing: 3px;
+        text-align: center;
+    }
+    .wrop {
+        padding: 5px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+    .flex {
+        display: flex;
+    }
+    .flex > * {
+        flex: 1;
+    }
+    .flex .wrop {
+        flex: 0.5;
+        text-align: center;
+        align-items: center;
+    }
+</style>
