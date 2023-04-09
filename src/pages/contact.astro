@@ -1,11 +1,12 @@
 ---
-import { changeLanguage } from "i18next";
+import { t, changeLanguage } from "i18next";
 import Layout from "../layouts/Layout.astro";
-import Contact from "../components/Contact/Contact.svelte";
+import Contact from "../website-data/content/Contact.svelte";
 
 changeLanguage("fr");
+const translations = t("contact", { returnObjects: true });
 ---
 
 <Layout title="contact.title">
-    <Contact client:load />
+    <Contact client:load t={translations} />
 </Layout>

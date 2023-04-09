@@ -1,0 +1,39 @@
+---
+import { t } from "i18next";
+---
+
+<div class="explications">
+    <span class="under-explications">
+        <span class="quote">"</span>{t("explications.quote")}<span class="quote">"</span> -
+        <a href="https://junior-entreprises.com/" target="_blank">{t("explications.author")}</a>
+    </span>
+</div>
+
+<style>
+    .explications .quote {
+        font-size: 1.4em;
+    }
+    .explications {
+        text-align: center;
+        margin-top: 50px;
+        margin-bottom: 10px;
+    }
+    .under-explications {
+        width: 70%;
+        display: block;
+        margin: auto;
+        padding-top: 50px;
+        padding-bottom: 20px;
+    }
+    .explications a {
+        display: initial;
+    }
+
+    @media screen and (max-width: 767px) {
+        .under-explications {
+            width: 90%;
+            padding-top: 40px;
+            padding-bottom: 10px;
+        }
+    }
+</style>

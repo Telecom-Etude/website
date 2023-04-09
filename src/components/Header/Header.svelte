@@ -4,7 +4,6 @@
     import Nav from "./Nav.svelte";
     let expanded = false;
     export let menus = [];
-
 </script>
 
 <header class="navigation w-nav">
