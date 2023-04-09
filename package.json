@@ -16,7 +16,6 @@
         "@astrojs/svelte": "^2.1.0",
         "astro": "^2.2.1",
         "astro-i18next": "^1.0.0-beta.21",
-        "svelte": "^3.58.0",
-        "svelte-inview": "^4.0.0"
+        "svelte": "^3.58.0"
     }
 }
