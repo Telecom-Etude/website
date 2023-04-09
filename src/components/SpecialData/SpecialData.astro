@@ -1,4 +1,5 @@
 ---
+import { localizePath } from "astro-i18next";
 import imgData from "../../website-data/imgs/big-data.png";
 import ButtonColor from "../ButtonColor.astro";
 import { t } from "i18next";
@@ -21,7 +22,7 @@ import { t } from "i18next";
         </div>
     </div>
     <div class="div-link">
-        <a class="link" href={"/offres/data"}>
+        <a class="link" href={localizePath("/offres/data")}>
             <ButtonColor>{t("special_data.button")}</ButtonColor>
         </a>
     </div>

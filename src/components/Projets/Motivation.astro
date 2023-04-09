@@ -3,6 +3,7 @@ import imgEkip from "../../website-data/imgs/about/2022-2023_Telecom_Etude.jpeg"
 import ButtonColor from "../ButtonColor.astro";
 import afnor from "../../website-data/imgs/telecom-etude-afnor.png";
 import { t } from "i18next";
+import { localizePath } from "astro-i18next";
 ---
 
 <div class="section">
@@ -29,7 +30,7 @@ import { t } from "i18next";
                 <p class="paragraph-light">
                     {t("motivation.paragraph")}
                 </p>
-                <a href="/contact" class="button-ref">
+                <a href={localizePath("/contact")} class="button-ref">
                     <ButtonColor>{t("motivation.button")}</ButtonColor>
                 </a>
             </div>

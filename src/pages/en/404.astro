@@ -1,0 +1,11 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import { changeLanguage } from "i18next";
+import Page404 from "../../components/Page404.astro";
+
+changeLanguage("en");
+---
+
+<BaseLayout title="404.title">
+    <Page404 />
+</BaseLayout>

@@ -1,0 +1,11 @@
+---
+import { changeLanguage } from "i18next";
+import Layout from "../../../layouts/Layout.astro";
+import OffreData from "../../../components/OffreData/OffreData.astro";
+
+changeLanguage("en");
+---
+
+<Layout title="offres.data.title">
+    <OffreData />
+</Layout>

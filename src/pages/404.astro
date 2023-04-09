@@ -1,51 +1,11 @@
 ---
-import oiseauJE from "../website-data/imgs/logo_oiseau_2.svg";
 import BaseLayout from "../layouts/BaseLayout.astro";
-import { t, changeLanguage } from "i18next";
+import { changeLanguage } from "i18next";
+import Page404 from "../components/Page404.astro";
 
 changeLanguage("fr");
 ---
 
 <BaseLayout title="404.title">
-    <a href="/" class="under">
-        <div class="flex">
-            <div class="img"><img id="img-logo" src={oiseauJE} /></div>
-            <div class="text">
-                <div>
-                    <span>{t("404.lost")}</span>
-                    <br />
-                    <span>{t("404.click")}</span>
-                </div>
-            </div>
-        </div>
-    </a>
+    <Page404 />
 </BaseLayout>
-
-<style>
-    .under {
-        text-decoration: none;
-    }
-    .text {
-        display: flex;
-        text-align: center;
-        align-items: center;
-        justify-content: center;
-    }
-    .text > * {
-        flex: 1;
-    }
-    .flex {
-        display: flex;
-    }
-    .flex > * {
-        flex: 1;
-    }
-    .img {
-        height: 100%;
-    }
-    @media screen and (max-width: 767px) {
-        .flex {
-            display: block;
-        }
-    }
-</style>

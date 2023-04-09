@@ -1,4 +1,5 @@
 ---
+import { localizePath } from "astro-i18next";
 import { data } from "../../website-data/content/footer";
 import jeLogo from "../../website-data/imgs/logo-long.svg";
 import { mail, year } from "../../website-data/content/constants";
@@ -22,7 +23,10 @@ import { t } from "i18next";
             <img src={jeLogo} width="230" alt="" class="webflow-logo-tiny" />
 
             <div class="paragraph-tiny">
-                <p><a href="/legal" class="w--current">{t("footer.text1")}</a></p><p>{t("footer.copyright")} {year}</p>
+                <p><a href={localizePath("/legal")} class="w--current">{t("footer.text1")}</a></p><p>
+                    {t("footer.copyright")}
+                    {year}
+                </p>
                 <p>{mail}</p>
             </div>
         </div>

@@ -1,4 +1,4 @@
-# Telecom Etude website
+# Telecom etude website
 
 - [https://telecom-etude.fr](https://telecom-etude.fr)
 

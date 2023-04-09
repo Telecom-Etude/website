@@ -2,18 +2,38 @@
     import logoUrl from "../../website-data/imgs/logo-long.svg";
     import imgLogoMenu from "../../website-data/imgs/header/menu.png";
     import Nav from "./Nav.svelte";
+    import { onMount } from "svelte";
     let expanded = false;
-    export let menus = [];
+    export let menus = {
+        fr: [],
+        en: [],
+    };
+    let correctMenus = [];
+    onMount(() => {
+        correctMenus = document.location.href.includes("/en") ? menus["en"] : menus["fr"];
+    });
+    const localizePath = (path) => {
+        if (typeof document !== "undefined") {
+            if (document.location.href.includes("/en")) {
+                if (path !== "/") {
+                    return `/en${path}`;
+                }
+                return "/en";
+            }
+            return path;
+        }
+        return path;
+    };
 </script>
 
 <header class="navigation w-nav">
     <div class="navigation-wrap" class:border={expanded}>
-        <a href="/" class="logo-link w-nav-brand">
+        <a href={localizePath("/")} class="logo-link w-nav-brand">
             <img src={logoUrl} width="150" alt="" class="logo-image" />
         </a>
         <div class="menu">
             <div class="nav">
-                <Nav expanded={false} list={menus} />
+                <Nav expanded={false} list={correctMenus} />
             </div>
             <!-- svelte-ignore a11y-click-events-have-key-events -->
             <div
@@ -31,7 +51,7 @@
     </div>
     {#if expanded}
         <div class="w-nav-overlay">
-            <Nav expanded={true} list={menus} />
+            <Nav expanded={true} list={correctMenus} />
         </div>
     {/if}
 </header>

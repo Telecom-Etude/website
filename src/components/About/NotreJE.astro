@@ -1,4 +1,6 @@
 ---
+import { localizePath } from "astro-i18next";
+
 import imgEkip from "../../website-data/imgs/about/2022-2023_Telecom_Etude.jpeg";
 import ButtonColor from "../ButtonColor.astro";
 import { t } from "i18next";
@@ -20,7 +22,7 @@ import { t } from "i18next";
                 {t("about.notre_je.mot6")}
             </p>
         </div>
-        <a href="/team" class="button-ref">
+        <a href={localizePath("/team")} class="button-ref">
             <ButtonColor>{t("about.notre_je.plus")}</ButtonColor>
         </a>
     </div>
