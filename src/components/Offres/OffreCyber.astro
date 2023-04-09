@@ -1,0 +1,66 @@
+---
+import Tabs from "../Tabs.astro";
+import { data } from "../../website-data/content/offres/offreCyber";
+import img from "../../website-data/imgs/offre-data/offre-data.png";
+import { t } from "i18next";
+---
+
+<div class="section">
+    <div class="flexing">
+        <div>
+            <span class="title">{t("offres.cyber.subtitle")}</span>
+            <div class="list">
+                <ul>
+                    {data.map(({ title }: any) => <li>{t(title)}</li>)}
+                </ul>
+            </div>
+        </div>
+        <div class="img-wrap"><img src={img} /></div>
+    </div>
+    <Tabs>
+        <p slot="slot-1">
+            {t("offres.cyber.example1")}
+        </p>
+        <p slot="slot-2">
+            {t("offres.cyber.example2")}
+        </p>
+    </Tabs>
+</div>
+
+<style>
+    .img-wrap img {
+        width: 50%;
+    }
+    .img-wrap {
+        display: flex;
+        border-radius: 4px;
+        margin: 8px;
+        background-color: #fff;
+        color: rgba(0, 0, 0, 0.87);
+        transition: box-shadow 300ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+        padding: 10px;
+        text-align: center;
+        justify-content: center;
+        align-items: center;
+        /* box-shadow: 0px 3px 3px -2px rgb(0 0 0 / 20%), 0px 3px 4px 0px rgb(0 0 0 / 14%),
+            0px 1px 8px 0px rgb(0 0 0 / 12%); */
+    }
+    .title {
+        font-size: 2em;
+    }
+    .list {
+        font-weight: 300;
+    }
+    .flexing {
+        display: flex;
+        padding-top: 100px;
+        padding-bottom: 100px;
+    }
+    .section {
+        width: 80%;
+        margin: auto;
+    }
+    .flexing > * {
+        flex: 1;
+    }
+</style>

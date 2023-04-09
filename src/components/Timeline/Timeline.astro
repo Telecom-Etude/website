@@ -10,8 +10,8 @@ const { list } = Astro.props;
         {
             list.map((item: any) => (
                 <li class="event" data-date={item.date}>
-                    <h3 set:html={item.title} />
-                    <p set:html={item.content} />
+                    <h3 set:html={t(item.title)} />
+                    <p set:html={t(item.content)} />
                 </li>
             ))
         }

@@ -16,7 +16,7 @@ import { t } from "i18next";
                             <img src={item.img} width="202" alt="" class="service-icon" />
                         </a>
                         <div class="paragraph-bigger">{item.type}</div>
-                        <div class="paragraph-light" set:html={item.text} />
+                        <div class="paragraph-light" set:html={t(item.text)} />
                     </div>
                 ))
             }
