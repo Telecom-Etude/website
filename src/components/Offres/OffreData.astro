@@ -3,6 +3,7 @@ import Tabs from "../Tabs.astro";
 import { data } from "../../website-data/content/offres/offreData";
 import img from "../../website-data/imgs/offre-data/offre-data.png";
 import { t } from "i18next";
+import TimelineEtude from "../Timeline/TimelineEtude.astro";
 ---
 
 <div class="section">
@@ -28,6 +29,7 @@ import { t } from "i18next";
             {t("offres.data.example3")}
         </p>
     </Tabs>
+    <TimelineEtude />
 </div>
 
 <style>

@@ -5,8 +5,8 @@
     import { onMount } from "svelte";
     let expanded = false;
     export let menus = {
-        fr: [],
-        en: [],
+        fr: {},
+        en: {},
     };
     let correctMenus = [];
     onMount(() => {

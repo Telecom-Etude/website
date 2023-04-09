@@ -3,7 +3,9 @@
     import { onMount } from "svelte";
     import FlagFR from "../../website-data/imgs/fr.svg";
     import FlagUK from "../../website-data/imgs/uk.svg";
-    export let list = [];
+    export let list = {
+        submenus: {},
+    };
     export let expanded;
     let pathname = "";
     onMount(() => {
@@ -24,24 +26,49 @@
 </script>
 
 <nav class:expanded>
-    <a class:hover={pathname === "/"} href={localizePath("/")}>{list[0] || ""}</a>
-    <a class:hover={pathname.includes("/about")} href={localizePath("/about")}>{list[1] || ""}</a>
-    <a class:hover={pathname.includes("/projets")} href={localizePath("/projets")}>{list[2] || ""}</a>
-    <a class:hover={pathname.includes("/team")} href={localizePath("/team")}>{list[3] || ""}</a>
-    <a href="https://docs.telecom-etude.fr/plaquette.pdf" target="_blank" rel="noreferrer">{list[4] || ""}</a>
-    <a class:hover={pathname.includes("/contact")} href={localizePath("/contact")}>{list[5] || ""}</a>
-    {#if typeof document !== "undefined" && document.location.href.includes("/en")}
-        <a href="/" title="Change to french">
-            <img src={FlagFR} width="22" alt="flag-france" class="menu-icon" />
-        </a>
-    {:else}
-        <a href="/en" title="Change to english">
-            <img src={FlagUK} width="22" alt="flag-uk" class="flag" />
-        </a>
-    {/if}
+    <div>
+        <a class:hover={pathname === "/"} href={localizePath("/")}>{list.menu1 || ""}</a>
+    </div>
+    <div>
+        <a class:hover={pathname.includes("/about")} href={localizePath("/about")}>{list.menu2 || ""}</a>
+    </div>
+    <div class="dropdown">
+        <div class="dropbtn">
+            <a class:hover={pathname.includes("/projets")} href={localizePath("/projets")}>{list.menu3 || ""}</a>
+        </div>
+        <div class="dropdown-content">
+            {#each Object.entries(list.submenus || {}) as [oneSubmenu, menuName]}
+                <a href={localizePath(oneSubmenu)}>{menuName || ""}</a>
+            {/each}
+        </div>
+    </div>
+    <div>
+        <a class:hover={pathname.includes("/team")} href={localizePath("/team")}>{list.menu4 || ""}</a>
+    </div>
+    <div>
+        <a href="https://docs.telecom-etude.fr/plaquette.pdf" target="_blank" rel="noreferrer">{list.menu5 || ""}</a>
+    </div>
+    <div>
+        <a class:hover={pathname.includes("/contact")} href={localizePath("/contact")}>{list.menu6 || ""}</a>
+    </div>
+    <div>
+        {#if typeof document !== "undefined" && document.location.href.includes("/en")}
+            <a href="/" title="Change to french">
+                <img src={FlagFR} width="22" alt="flag-france" class="menu-icon" />
+            </a>
+        {:else}
+            <a href="/en" title="Change to english">
+                <img src={FlagUK} width="22" alt="flag-uk" class="flag" />
+            </a>
+        {/if}
+    </div>
 </nav>
 
 <style>
+    nav > div {
+        display: inline-block;
+    }
+
     .hover {
         opacity: 1;
     }
@@ -68,7 +95,7 @@
         text-align: center;
     }
 
-    .expanded a {
+    .expanded > div {
         text-align: center;
         display: block;
     }
@@ -90,5 +117,42 @@
         font-weight: 500;
         letter-spacing: 1px;
         text-transform: uppercase;
+    }
+
+    /* The container <div> - needed to position the dropdown content */
+    .dropdown {
+        position: relative;
+        display: inline-block;
+    }
+
+    /* Dropdown Content (Hidden by Default) */
+    .dropdown-content {
+        display: none;
+        position: absolute;
+        background-color: #f1f1f1;
+        min-width: 160px;
+        box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+        z-index: 1;
+    }
+
+    /* Links inside the dropdown */
+    .dropdown-content a {
+        color: black;
+        padding: 12px 16px;
+        text-decoration: none;
+        display: block;
+    }
+
+    /* Change color of dropdown links on hover */
+    .dropdown-content a:hover {
+        background-color: #ddd;
+    }
+
+    /* Show the dropdown menu on hover */
+    .dropdown:hover .dropdown-content {
+        display: block;
+    }
+    .expanded .dropdown:hover .dropdown-content {
+        display: inline-block;
     }
 </style>
