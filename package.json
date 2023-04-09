@@ -9,7 +9,7 @@
         "build": "astro build || (npm i && npm run build)",
         "preview": "astro preview",
         "localize": "npx astro-i18next generate",
-        "dist": "./dist.sh",
+        "dist": "./src/website-data/dist.sh",
         "astro": "astro"
     },
     "dependencies": {
