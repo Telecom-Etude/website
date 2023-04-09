@@ -39,3 +39,9 @@ This website is currently using:
 ```sh
 npx npm-check-updates
 ```
+
+## Deploy
+
+```sh
+npm run dist
+```
