@@ -11,8 +11,8 @@ import { t } from "i18next";
         <div class="sm-handle">
             {
                 data.map((item) => (
-                    <a href={item.link} class="sm-button" title={item.title} target="_blank">
-                        <div class="wrapper">
+                    <a href={item.link} class="sm-button" target="_blank">
+                        <div class="wrapper" title={item.title}>
                             <i class={`fab ${item.icon}`} />
                         </div>
                     </a>
