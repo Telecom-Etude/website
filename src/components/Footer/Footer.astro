@@ -11,7 +11,7 @@ import { t } from "i18next";
         <div class="sm-handle">
             {
                 data.map((item) => (
-                    <a href={item.link} class="sm-button" target="_blank">
+                    <a href={item.link} class="sm-button" target="_blank" aria-label={`Link to ${item.title}`}>
                         <div class="wrapper" title={item.title}>
                             <i class={`fab ${item.icon}`} />
                         </div>
