@@ -9,16 +9,18 @@ import { t } from "i18next";
     <div class="img"><img id="img-logo" alt="telecom etude logo" src={oiseauJE} /></div>
     <div class="text">
         <div>
-            <h5><span class="text-gradient">{t("start.text1")}</span>{t("start.text2")}</h5>
+            <div>
+                <h5><span class="text-gradient">{t("start.text1")}</span>{t("start.text2")}</h5>
+                <br />
+                <h6>
+                    {t("start.text3")}
+                </h6>
+            </div>
             <br />
-            <h6>
-                {t("start.text3")}
-            </h6>
+            <a href={localizePath("/contact")} class="href-start">
+                <ButtonColor>{t("start.more")}</ButtonColor>
+            </a>
         </div>
-        <br />
-        <a href={localizePath("/contact")} class="href-start">
-            <ButtonColor>{t("start.more")}</ButtonColor>
-        </a>
     </div>
 </div>
 
@@ -28,7 +30,7 @@ import { t } from "i18next";
     }
 
     #img-logo {
-        width: 85%;
+        width: 50%;
     }
     .under-explications {
         width: 70%;
@@ -55,9 +57,10 @@ import { t } from "i18next";
     .flex-wrap > * {
         flex: 0.5;
         display: flex;
+        height: 75vh;
     }
     .text {
-        display: block;
+        display: flex;
         text-align: center;
         margin: auto;
     }

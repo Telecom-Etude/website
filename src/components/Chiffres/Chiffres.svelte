@@ -11,7 +11,7 @@
     <hr />
     <div in:fade class="box">
         <div>
-            <span class="chiffre"><OneNumber value={data.nbClients} delay={10} /><span>%</span><br /></span>
+            <span class="chiffre"><OneNumber value={data.clientSatisfaits} delay={10} /><span>%</span><br /></span>
             <span>{text[1]}</span>
         </div>
         <div>

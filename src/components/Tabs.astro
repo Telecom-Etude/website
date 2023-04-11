@@ -11,9 +11,7 @@ import { t } from "i18next";
         {
             Array.from({ length: numSlot }).map((i, ind) => (
                 <div class={`example-${ind + 1}`}>
-                    <label for={`tab${ind + 1}`}>
-                        {t("tabs.example")} {numSlot > 1 ? ind + 1 : ""}
-                    </label>
+                    <label for={`tab${ind + 1}`}> </label>
                 </div>
             ))
         }
