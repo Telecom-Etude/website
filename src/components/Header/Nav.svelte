@@ -3,6 +3,7 @@
     import { onMount } from "svelte";
     import FlagFR from "../../website-data/imgs/fr.svg";
     import FlagUK from "../../website-data/imgs/uk.svg";
+    import { url } from "../../website-data/content/url";
     export let list = {
         submenus: {},
     };
@@ -46,7 +47,7 @@
         <a class:hover={pathname.includes("/team")} href={localizePath("/team")}>{list.menu4 || ""}</a>
     </div>
     <div>
-        <a href="https://docs.telecom-etude.fr/plaquette.pdf" target="_blank" rel="noreferrer">{list.menu5 || ""}</a>
+        <a href={`${url}/plaquette.pdf`} target="_blank" rel="noreferrer">{list.menu5 || ""}</a>
     </div>
     <div>
         <a class:hover={pathname.includes("/contact")} href={localizePath("/contact")}>{list.menu6 || ""}</a>
