@@ -28,7 +28,14 @@
 
 <header class="navigation w-nav">
     <div class="navigation-wrap" class:border={expanded}>
-        <a href={localizePath("/")} class="logo-link w-nav-brand">
+        <a
+            on:contextmenu={(event) => {
+                event.preventDefault();
+                window.location.href = "https://github.com/Telecom-Etude/logos";
+            }}
+            href={localizePath("/")}
+            class="logo-link w-nav-brand"
+        >
             <img src={logoUrl} width="150" alt="" class="logo-image" aria-label="Link to Home" />
         </a>
         <div class="menu">

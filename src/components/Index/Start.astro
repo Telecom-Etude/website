@@ -1,12 +1,14 @@
 ---
 import { localizePath } from "astro-i18next";
-import oiseauJE from "../../website-data/imgs/logo_oiseau_2.svg";
 import ButtonColor from "../ButtonColor.astro";
 import { t } from "i18next";
+import LogoOnly from "../Img/LogoOnly.svelte";
 ---
 
 <div class="flex-wrap">
-    <div class="img"><img id="img-logo" alt="telecom etude logo" src={oiseauJE} /></div>
+    <div class="img">
+        <LogoOnly client:load />
+    </div>
     <div class="text">
         <div>
             <div>
@@ -29,9 +31,6 @@ import { t } from "i18next";
         text-decoration: none;
     }
 
-    #img-logo {
-        width: 50%;
-    }
     .under-explications {
         width: 70%;
         display: block;
@@ -58,6 +57,7 @@ import { t } from "i18next";
     .flex-wrap > * {
         flex: 0.5;
         display: flex;
+        justify-content: center;
     }
     .text {
         display: flex;
@@ -87,9 +87,6 @@ import { t } from "i18next";
         .flex-wrap {
             display: block;
             height: auto;
-        }
-        #img-logo {
-            width: 50%;
         }
     }
 </style>
