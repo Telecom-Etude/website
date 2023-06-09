@@ -1,8 +1,9 @@
 <script lang="ts">
     import { fade } from "svelte/transition";
-    import OneNumber from "./OneNumber.svelte";
+    import { cubicOut as ease } from "svelte/easing";
     import { data } from "../../website-data/content/chiffres";
     import { year } from "../../website-data/content/constants";
+    import { DisplayerTweened } from "svelte-number-displayer";
     export let text: string[] = [];
 </script>
 
@@ -11,23 +12,28 @@
     <hr />
     <div in:fade class="box">
         <div>
-            <span class="chiffre"><OneNumber value={data.clientSatisfaits} delay={10} /><span>%</span><br /></span>
+            <span class="chiffre"
+                ><DisplayerTweened value={data.clientSatisfaits} timing={5} easing={ease} /><span>%</span><br /></span
+            >
             <span>{text[1]}</span>
         </div>
         <div>
-            <span class="chiffre"><OneNumber value={data.nbProjets} delay={1} /><br /></span>
+            <span class="chiffre"><DisplayerTweened value={data.nbProjets} timing={4} easing={ease} /><br /></span>
             <span>{text[2]}</span>
         </div>
         <div>
-            <span class="chiffre"><OneNumber value={year - data.creation} delay={15} /><br /></span>
+            <span class="chiffre"><DisplayerTweened value={year - data.creation} timing={5} easing={ease} /><br /></span
+            >
             <span>{text[3]}</span>
         </div>
         <div>
-            <span class="chiffre"><span>+</span><OneNumber value={data.nbEleves} delay={1} /><br /></span>
+            <span class="chiffre"
+                ><span>+</span><DisplayerTweened value={data.nbEleves} timing={4} easing={ease} /><br /></span
+            >
             <span>{text[4]}</span>
         </div>
         <div>
-            <span class="chiffre"><OneNumber value={data.nbAdmins} delay={12} /><br /></span>
+            <span class="chiffre"><DisplayerTweened value={data.nbAdmins} timing={5} easing={ease} /><br /></span>
             <span>{text[5]}</span>
         </div>
     </div>
