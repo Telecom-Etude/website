@@ -1,4 +1,5 @@
 <script lang="ts">
+    import IntersectionObserver from "./IntersectionObserver.svelte";
     import { fade } from "svelte/transition";
     import { cubicOut as ease } from "svelte/easing";
     import { data } from "../../website-data/content/chiffres";
@@ -10,33 +11,55 @@
 <div class="section">
     <h3 class="sub">{text[0]}</h3>
     <hr />
-    <div in:fade class="box">
-        <div>
-            <span class="chiffre"
-                ><DisplayerTweened value={data.clientSatisfaits} timing={5} easing={ease} /><span>%</span><br /></span
-            >
-            <span>{text[1]}</span>
+    <IntersectionObserver once={true} let:intersecting>
+        <div in:fade class="box">
+            <div>
+                <span class="chiffre">
+                    {#if intersecting}
+                        <DisplayerTweened value={data.clientSatisfaits} timing={5} easing={ease} /><span>%</span>
+                    {/if}
+                    <br /></span
+                >
+                <span>{text[1]}</span>
+            </div>
+            <div>
+                <span class="chiffre">
+                    {#if intersecting}
+                        <DisplayerTweened value={data.nbProjets} timing={4} easing={ease} />
+                    {/if}
+                    <br /></span
+                >
+                <span>{text[2]}</span>
+            </div>
+            <div>
+                <span class="chiffre">
+                    {#if intersecting}
+                        <DisplayerTweened value={year - data.creation} timing={5} easing={ease} />
+                    {/if}
+                    <br /></span
+                >
+                <span>{text[3]}</span>
+            </div>
+            <div>
+                <span class="chiffre">
+                    {#if intersecting}
+                        <span>+</span><DisplayerTweened value={data.nbEleves} timing={4} easing={ease} />
+                    {/if}
+                    <br /></span
+                >
+                <span>{text[4]}</span>
+            </div>
+            <div>
+                <span class="chiffre">
+                    {#if intersecting}
+                        <DisplayerTweened value={data.nbAdmins} timing={5} easing={ease} />
+                    {/if}
+                    <br /></span
+                >
+                <span>{text[5]}</span>
+            </div>
         </div>
-        <div>
-            <span class="chiffre"><DisplayerTweened value={data.nbProjets} timing={4} easing={ease} /><br /></span>
-            <span>{text[2]}</span>
-        </div>
-        <div>
-            <span class="chiffre"><DisplayerTweened value={year - data.creation} timing={5} easing={ease} /><br /></span
-            >
-            <span>{text[3]}</span>
-        </div>
-        <div>
-            <span class="chiffre"
-                ><span>+</span><DisplayerTweened value={data.nbEleves} timing={4} easing={ease} /><br /></span
-            >
-            <span>{text[4]}</span>
-        </div>
-        <div>
-            <span class="chiffre"><DisplayerTweened value={data.nbAdmins} timing={5} easing={ease} /><br /></span>
-            <span>{text[5]}</span>
-        </div>
-    </div>
+    </IntersectionObserver>
     <hr />
 </div>
 
