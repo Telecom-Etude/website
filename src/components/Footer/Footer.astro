@@ -23,7 +23,8 @@ import Logo from "../Img/Logo.svelte";
             <Logo client:load />
 
             <div class="paragraph-tiny">
-                <p><a href={localizePath("/legal")} class="w--current">{t("footer.text1")}</a></p><p>
+                <p><a href={localizePath("/legal")} class="w--current">{t("footer.text1")}</a></p>
+                <p>
                     {t("footer.copyright")}
                     {year}
                 </p>
