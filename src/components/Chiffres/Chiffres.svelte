@@ -11,15 +11,15 @@
     <hr />
     <div in:fade class="box">
         <div>
-            <span class="chiffre"><OneNumber value={data.clientSatisfaits} delay={10} /><span>%</span><br /></span>
+            <span class="chiffre"><OneNumber value={data.clientSatisfaits} delay={8} /><span>%</span><br /></span>
             <span>{text[1]}</span>
         </div>
         <div>
-            <span class="chiffre"><OneNumber value={data.nbProjets} delay={1} /><br /></span>
+            <span class="chiffre"><OneNumber value={data.nbProjets} delay={15} /><br /></span>
             <span>{text[2]}</span>
         </div>
         <div>
-            <span class="chiffre"><OneNumber value={year - data.creation} delay={15} /><br /></span>
+            <span class="chiffre"><OneNumber value={year - data.creation} delay={20} /><br /></span>
             <span>{text[3]}</span>
         </div>
         <div>
@@ -27,7 +27,7 @@
             <span>{text[4]}</span>
         </div>
         <div>
-            <span class="chiffre"><OneNumber value={data.nbAdmins} delay={12} /><br /></span>
+            <span class="chiffre"><OneNumber value={data.nbAdmins} delay={25} /><br /></span>
             <span>{text[5]}</span>
         </div>
     </div>

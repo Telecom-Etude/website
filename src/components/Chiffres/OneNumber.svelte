@@ -1,8 +1,9 @@
 <script>
     import { onMount } from "svelte";
-    const speed = 100000000;
+    const speed = 200;
     export let value;
-    export let delay = 10;
+    export let delay;
+    delay = 2*delay;
     let numberDisplay = "";
     const animate = () => {
         const data = +numberDisplay;
