@@ -1,12 +1,12 @@
 ---
-import oiseauJE from "../website-data/imgs/logo_oiseau_2.svg";
 import { t } from "i18next";
 import { localizePath } from "astro-i18next";
+import LogoOnly from "./Img/LogoOnly.astro";
 ---
 
 <a href={localizePath("/")} class="under">
     <div class="flex">
-        <div class="img"><img id="img-logo" src={oiseauJE} /></div>
+        <div class="img"><LogoOnly /></div>
         <div class="text">
             <div>
                 <span>{t("404.lost")}</span>

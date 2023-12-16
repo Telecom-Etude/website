@@ -1,0 +1,26 @@
+---
+import oiseauJE from "../../website-data/imgs/logo_oiseau_2.svg";
+---
+
+<img
+    id="img-logo"
+    alt="telecom etude logo"
+    src={oiseauJE}
+/>
+<script>
+    document.querySelector("#img-logo").addEventListener("contextmenu", (event) => {
+        event.preventDefault();
+        window.location.href = "https://github.com/Telecom-Etude/logos";
+    });
+</script>
+
+<style>
+    #img-logo {
+        width: 50%;
+    }
+    @media screen and (max-width: 767px) {
+        #img-logo {
+            width: 50%;
+        }
+    }
+</style>

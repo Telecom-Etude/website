@@ -1,69 +1,62 @@
-<script>
-    import logoUrl from "../../website-data/imgs/logo-long.svg";
-    import imgLogoMenu from "../../website-data/imgs/header/menu.png";
-    import Nav from "./Nav.svelte";
-    import { onMount } from "svelte";
-    let expanded = false;
-    export let menus = {
+---
+import logoUrl from "../../website-data/imgs/logo-long.svg";
+import imgLogoMenu from "../../website-data/imgs/header/menu.png";
+import Nav from "./Nav.astro";
+import { localizePathByLang } from "../utils";
+export interface Props {
+    lang: string;
+    menus: {
+        fr: Record<string, string>;
+        en: Record<string, string>;
+    };
+}
+const {
+    menus = {
         fr: {},
         en: {},
-    };
-    let correctMenus = [];
-    onMount(() => {
-        correctMenus = document.location.href.includes("/en") ? menus["en"] : menus["fr"];
-    });
-    const localizePath = (path) => {
-        if (typeof document !== "undefined") {
-            if (document.location.href.includes("/en")) {
-                if (path !== "/") {
-                    return `/en${path}`;
-                }
-                return "/en";
-            }
-            return path;
-        }
-        return path;
-    };
-</script>
+    },
+    lang,
+} = Astro.props;
+const correctMenus = lang == "en" ? menus["en"] : menus["fr"];
+const localizePath = localizePathByLang(lang);
+---
 
 <header class="navigation w-nav">
-    <div class="navigation-wrap" class:border={expanded}>
-        <a
-            on:contextmenu={(event) => {
-                event.preventDefault();
-                window.location.href = "https://github.com/Telecom-Etude/logos";
-            }}
-            href={localizePath("/")}
-            class="logo-link w-nav-brand"
-        >
+    <input type="checkbox" id="open-nav" checked />
+    <div class="navigation-wrap">
+        <a href={localizePath("/")} class="logo-link w-nav-brand">
             <img src={logoUrl} width="150" alt="" class="logo-image" aria-label="Link to Home" />
         </a>
+        <script>
+            document.querySelector(".logo-link").addEventListener("contextmenu", (e) => {
+                e.preventDefault();
+                window.location.href = "https://github.com/Telecom-Etude/logos";
+            });
+        </script>
         <div class="menu">
             <div class="nav">
-                <Nav expanded={false} list={correctMenus} />
+                <Nav expanded={false} list={correctMenus} lang={lang} />
             </div>
-            <!-- svelte-ignore a11y-click-events-have-key-events -->
-            <div
-                class="menu-button w-nav-button"
-                aria-label="menu"
-                role="button"
-                tabindex="0"
-                on:click={() => {
-                    expanded = !expanded;
-                }}
-            >
-                <img src={imgLogoMenu} width="22" alt="menu-icon" class="menu-icon" />
-            </div>
+            <label for="open-nav">
+                <div class="menu-button w-nav-button" aria-label="menu" role="button" tabindex="0">
+                    <img src={imgLogoMenu} width="22" alt="menu-icon" class="menu-icon" />
+                </div>
+            </label>
         </div>
     </div>
-    {#if expanded}
-        <div class="w-nav-overlay">
-            <Nav expanded={true} list={correctMenus} />
-        </div>
-    {/if}
+    <div class="w-nav-overlay">
+        <Nav expanded={true} list={correctMenus} lang={lang} />
+    </div>
 </header>
 
 <style>
+    #open-nav {
+        display: none;
+    }
+    #open-nav:checked ~ .w-nav-overlay {
+        display: none;
+    }
+
     .navigation-wrap {
         display: flex;
         justify-content: center;
@@ -84,7 +77,10 @@
     }
 
     @media screen and (max-width: 991px) {
-        .border {
+        #open-nav:checked ~ .navigation-wrap {
+            border-bottom: none;
+        }
+        #open-nav ~ .navigation-wrap {
             border-bottom: 1px solid gray;
         }
     }

@@ -2,12 +2,12 @@
 import { localizePath } from "astro-i18next";
 import ButtonColor from "../ButtonColor.astro";
 import { t } from "i18next";
-import LogoOnly from "../Img/LogoOnly.svelte";
+import LogoOnly from "../Img/LogoOnly.astro";
 ---
 
 <div class="flex-wrap">
     <div class="img">
-        <LogoOnly client:load />
+        <LogoOnly />
     </div>
     <div class="text">
         <div>
