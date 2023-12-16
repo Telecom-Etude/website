@@ -38,7 +38,7 @@ const localizePath = localizePathByLang(lang);
         <div class="dropdown-content">
             {
                 Object.entries(list.submenus || {}).map(([oneSubmenu, menuName]) => {
-                    <a href={localizePath(oneSubmenu)}>{menuName || ""}</a>;
+                    return <a href={localizePath(oneSubmenu)}>{menuName || ""}</a>;
                 })
             }
         </div>
