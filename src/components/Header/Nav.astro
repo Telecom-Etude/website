@@ -1,67 +1,75 @@
-<script>
-    // import { localizePath } from "astro-i18next";
-    import { onMount } from "svelte";
-    import FlagFR from "../../website-data/imgs/fr.svg";
-    import FlagUK from "../../website-data/imgs/uk.svg";
-    import { url } from "../../website-data/content/url";
-    export let list = {
+---
+import FlagFR from "../../website-data/imgs/fr.svg";
+import FlagUK from "../../website-data/imgs/uk.svg";
+import { url } from "../../website-data/content/url";
+import { localizePathByLang } from "../utils";
+export interface Props {
+    lang: string;
+    menus: {
+        fr: Record<string, string>;
+        en: Record<string, string>;
+    };
+    expanded: boolean;
+}
+const {
+    list = {
         submenus: {},
-    };
-    export let expanded;
-    let pathname = "";
-    onMount(() => {
-        pathname = document.location.pathname;
-    });
-    const localizePath = (path) => {
-        if (typeof document !== "undefined") {
-            if (document.location.href.includes("/en")) {
-                if (path !== "/") {
-                    return `/en${path}`;
-                }
-                return "/en";
-            }
-            return path;
-        }
-        return path;
-    };
-</script>
+    },
+    expanded,
+    lang,
+} = Astro.props;
+let pathname = Astro.url.pathname;
+const localizePath = localizePathByLang(lang);
+---
 
-<nav class:expanded>
+<nav class:list={[{ expanded }]}>
     <div>
-        <a class:hover={pathname === "/"} href={localizePath("/")}>{list.menu1 || ""}</a>
+        <a class:list={[{ hover: pathname === "/" }]} href={localizePath("/")}>{list.menu1 || ""}</a>
     </div>
     <div>
-        <a class:hover={pathname.includes("/about")} href={localizePath("/about")}>{list.menu2 || ""}</a>
+        <a class:list={[{ hover: pathname.includes("/about") }]} href={localizePath("/about")}>{list.menu2 || ""}</a>
     </div>
     <div class="dropdown">
         <div class="dropbtn">
-            <a class:hover={pathname.includes("/projets")} href={localizePath("/projets")}>{list.menu3 || ""}</a>
+            <a class:list={[{ hover: pathname.includes("/projets") }]} href={localizePath("/projets")}
+                >{list.menu3 || ""}</a
+            >
         </div>
         <div class="dropdown-content">
-            {#each Object.entries(list.submenus || {}) as [oneSubmenu, menuName]}
-                <a href={localizePath(oneSubmenu)}>{menuName || ""}</a>
-            {/each}
+            {
+                Object.entries(list.submenus || {}).map(([oneSubmenu, menuName]) => {
+                    <a href={localizePath(oneSubmenu)}>{menuName || ""}</a>;
+                })
+            }
         </div>
     </div>
     <div>
-        <a class:hover={pathname.includes("/team")} href={localizePath("/team")}>{list.menu4 || ""}</a>
+        <a class:list={[{ hover: pathname.includes("/team") }]} href={localizePath("/team")}>{list.menu4 || ""}</a>
     </div>
     <div>
         <a href={`${url}/plaquette.pdf`} target="_blank" rel="noreferrer">{list.menu5 || ""}</a>
     </div>
     <div>
-        <a class:hover={pathname.includes("/contact")} href={localizePath("/contact")}>{list.menu6 || ""}</a>
+        <a class:list={[{ hover: pathname.includes("/contact") }]} href={localizePath("/contact")}>
+            {list.menu6 || ""}
+        </a>
     </div>
     <div>
-        {#if typeof document !== "undefined" && document.location.href.includes("/en")}
-            <a href="/" title="Change to french">
-                <img src={FlagFR} width="22" alt="flag-france" class="menu-icon" />
-            </a>
-        {:else}
-            <a href="/en" title="Change to english">
-                <img src={FlagUK} width="22" alt="flag-uk" class="flag" />
-            </a>
-        {/if}
+        {
+            (lang == "en" && (
+                <>
+                    <a href="/" title="Change to french">
+                        <img src={FlagFR} width="22" alt="flag-france" class="menu-icon" />
+                    </a>
+                </>
+            )) || (
+                <>
+                    <a href="/en" title="Change to english">
+                        <img src={FlagUK} width="22" alt="flag-uk" class="flag" />
+                    </a>
+                </>
+            )
+        }
     </div>
 </nav>
 

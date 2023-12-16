@@ -1,19 +1,20 @@
 ---
 export interface Props {
     title: string;
+    lang: string;
 }
-const { title } = Astro.props;
-import Header from "../components/Header/Header.svelte";
+const { title, lang = "fr" } = Astro.props;
+import Header from "../components/Header/Header.astro";
 import Footer from "../components/Footer/Footer.astro";
 import BaseLayout from "./BaseLayout.astro";
 import { menuNames } from "../website-data/content/navigation";
 ---
 
-<BaseLayout title={title}>
-    <Header client:load menus={menuNames} />
+<BaseLayout title={title} lang={lang}>
+    <Header lang={lang} menus={menuNames} />
     <div class="content">
         <slot />
-        <Footer />
+        <Footer lang={lang} />
     </div>
 </BaseLayout>
 

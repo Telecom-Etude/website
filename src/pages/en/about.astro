@@ -1,12 +1,11 @@
 ---
 import { changeLanguage } from "i18next";
 import Layout from "../../layouts/Layout.astro";
-import About from "../../components/About/About.astro";
-import Footer from "../../components/Footer/Footer.astro";
+import AboutCompo from "../../components/About/About.astro";
 
 changeLanguage("en");
 ---
 
-<Layout title="about.title">
-    <About />
+<Layout title="about.title" lang="en">
+    <AboutCompo />
 </Layout>

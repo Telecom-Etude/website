@@ -1,9 +1,14 @@
 ---
-import { localizePath } from "astro-i18next";
+import { localizePathByLang } from "../utils";
 import { data } from "../../website-data/content/footer";
 import { mail, year } from "../../website-data/content/constants";
 import { t } from "i18next";
-import Logo from "../Img/Logo.svelte";
+import Logo from "../Img/Logo.astro";
+export interface Props {
+    lang: string;
+}
+const { lang } = Astro.props;
+const localizePath = localizePathByLang(lang);
 ---
 
 <footer class="section">
@@ -20,7 +25,7 @@ import Logo from "../Img/Logo.svelte";
             }
         </div>
         <div class="flexing">
-            <Logo client:load />
+            <Logo />
 
             <div class="paragraph-tiny">
                 <p><a href={localizePath("/legal")} class="w--current">{t("footer.text1")}</a></p>

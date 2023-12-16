@@ -1,0 +1,11 @@
+---
+import jeLogo from "../../website-data/imgs/logo-long.svg";
+---
+
+<img src={jeLogo} width="230" alt="logo-telecom-etude" id="logo-footer" class="webflow-logo-tiny" />
+<script>
+    document.querySelector("#logo-footer").addEventListener("contextmenu", (event) => {
+        event.preventDefault();
+        window.location.href = "https://github.com/Telecom-Etude/logos";
+    });
+</script>

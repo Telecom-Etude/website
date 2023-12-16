@@ -5,7 +5,7 @@
     "private": true,
     "scripts": {
         "dev": "astro dev",
-        "start": "astro dev",
+        "start": "astro dev || (npm i && npm run dev)",
         "build": "astro build || (npm i && npm run build)",
         "preview": "astro preview",
         "localize": "npx astro-i18next generate",
