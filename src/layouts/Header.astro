@@ -1,16 +1,14 @@
 ---
-import { t } from "i18next";
 import Cover from "../imgs/cover.png";
 export interface Props {
     title: string;
+    desc: string;
 }
-const desc = t("description");
 const img = Cover;
 const domain = "telecom-etude.fr";
 const url = `https://${domain}`;
 const key = "";
-const { title: titleProps } = Astro.props;
-const title = t(titleProps);
+const { title, desc } = Astro.props;
 ---
 
 <meta charset="UTF-8" />
