@@ -1,13 +1,13 @@
 ---
 import { changeLanguage } from "i18next";
 import Layout from "../layouts/Layout.astro";
-import Team from "../components/Team/Team.astro";
+import TeamComp from "../components/Team/Team.astro";
 import Partenaires from "../components/Partenaires/Partenaires.astro";
 
 changeLanguage("fr");
 ---
 
 <Layout title="team.title">
-    <Team />
+    <TeamComp />
     <Partenaires />
 </Layout>

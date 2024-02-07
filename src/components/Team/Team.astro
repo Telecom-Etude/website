@@ -1,6 +1,8 @@
 ---
 import imgOrga from "../../website-data/imgs/organigramme.png";
 import Bureau from "./Bureau.astro";
+import imgPolitique from "../../website-data/imgs/politique_qualite.png"; 
+
 import { t } from "i18next";
 ---
 
@@ -13,9 +15,20 @@ import { t } from "i18next";
         <img src={imgOrga} width="100%" alt="organisation" />
     </div>
     <div class="divider"></div>
+    <div class="section-heading-wrap">
+        <h2>{t("politique-qualite.sub-title")}</h2>
+    </div>
+    <div class="img-politique-qualite">
+        <img src={imgPolitique} width="100%" alt="politique qualité" />
+    </div>
 </section>
 
 <style>
+    .img-politique-qualite {
+        width: 65%;
+        margin: auto;
+    }
+
     .img-orga {
         width: 75%;
         margin: auto;
