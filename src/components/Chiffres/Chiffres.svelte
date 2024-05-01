@@ -9,54 +9,74 @@
 </script>
 
 <div class="section">
-    <h3 class="sub">{text[0]}</h3>
+    <h2 class="sub">{text[0]}</h2>
     <hr />
     <IntersectionObserver once={true} let:intersecting>
         <div in:fade class="box">
             <div>
                 <span class="chiffre">
                     {#if intersecting}
-                        <DisplayerTweened value={data.clientSatisfaits} timing={5} easing={ease} /><span>%</span>
+                        <DisplayerTweened
+                            value={data.clientSatisfaits}
+                            timing={5}
+                            easing={ease}
+                        /><span>%</span>
                     {/if}
                     <br /></span
                 >
-                <span>{text[1]}</span>
+                <p>{text[1]}</p>
             </div>
             <div>
                 <span class="chiffre">
                     {#if intersecting}
-                        <DisplayerTweened value={data.nbProjets} timing={4} easing={ease} />
+                        <DisplayerTweened
+                            value={data.nbProjets}
+                            timing={4}
+                            easing={ease}
+                        />
                     {/if}
                     <br /></span
                 >
-                <span>{text[2]}</span>
+                <p>{text[2]}</p>
             </div>
             <div>
                 <span class="chiffre">
                     {#if intersecting}
-                        <DisplayerTweened value={year - data.creation} timing={5} easing={ease} />
+                        <DisplayerTweened
+                            value={year - data.creation}
+                            timing={5}
+                            easing={ease}
+                        />
                     {/if}
                     <br /></span
                 >
-                <span>{text[3]}</span>
+                <p>{text[3]}</p>
             </div>
             <div>
                 <span class="chiffre">
                     {#if intersecting}
-                        <span>+</span><DisplayerTweened value={data.nbEleves} timing={4} easing={ease} />
+                        <span>+</span><DisplayerTweened
+                            value={data.nbEleves}
+                            timing={4}
+                            easing={ease}
+                        />
                     {/if}
                     <br /></span
                 >
-                <span>{text[4]}</span>
+                <p>{text[4]}</p>
             </div>
             <div>
                 <span class="chiffre">
                     {#if intersecting}
-                        <DisplayerTweened value={data.nbAdmins} timing={5} easing={ease} />
+                        <DisplayerTweened
+                            value={data.nbAdmins}
+                            timing={5}
+                            easing={ease}
+                        />
                     {/if}
                     <br /></span
                 >
-                <span>{text[5]}</span>
+                <p>{text[5]}</p>
             </div>
         </div>
     </IntersectionObserver>

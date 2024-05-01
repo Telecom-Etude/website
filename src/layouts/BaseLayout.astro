@@ -10,14 +10,17 @@ import faviconLink from "../website-data/imgs/favicon.png";
 import "../css/font-awesome.css";
 ---
 
-<!doctype html>
+<!DOCTYPE html>
 <html lang={i18next.language}>
     <head>
         <Header title={t(title)} desc={t("description")} />
         <link rel="sitemap" href="/sitemap-index.xml" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;300;400;600" rel="stylesheet" />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;300;400;600"
+            rel="stylesheet"
+        />
         <link rel="icon" type="image/svg+xml" href={faviconLink} />
     </head>
     <body>
@@ -32,7 +35,12 @@ import "../css/font-awesome.css";
                 --deg5: #dc3551;
                 --deg6: #d92b4d;
                 --red: #d51f48;
-                --accent-gradient: linear-gradient(45deg, var(--orange), var(--red) 85%, rgb(255, 252, 251) 150%);
+                --accent-gradient: linear-gradient(
+                    45deg,
+                    var(--orange),
+                    var(--red) 85%,
+                    rgb(255, 252, 251) 150%
+                );
             }
             html {
                 font-family: Montserrat, sans-serif;
@@ -45,6 +53,13 @@ import "../css/font-awesome.css";
                 font-weight: 400;
             }
             h3 {
+                margin-top: 10px;
+                margin-bottom: 10px;
+                font-size: 26px;
+                line-height: 46px;
+                font-weight: 400;
+            }
+            h2 {
                 margin-top: 10px;
                 margin-bottom: 10px;
                 font-size: 30px;
@@ -80,14 +95,8 @@ import "../css/font-awesome.css";
                 text-decoration: underline;
             }
             code {
-                font-family:
-                    Menlo,
-                    Monaco,
-                    Lucida Console,
-                    Liberation Mono,
-                    DejaVu Sans Mono,
-                    Bitstream Vera Sans Mono,
-                    Courier New,
+                font-family: Menlo, Monaco, Lucida Console, Liberation Mono,
+                    DejaVu Sans Mono, Bitstream Vera Sans Mono, Courier New,
                     monospace;
             }
             * {

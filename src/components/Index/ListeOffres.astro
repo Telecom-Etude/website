@@ -10,22 +10,24 @@ import { t } from "i18next";
 
 <section style={`--color: ${color || "black"}`}>
     <div class="up-text">
-        <h6>{t("list_offres.text1")}<span class="under">{t("list_offres.text2")}</span>{t("list_offres.text3")}</h6>
-        <h5>{t("list_offres.text4")}</h5>
+        <p>
+            {t("list_offres.text1")}<span class="under"
+                >{t("list_offres.text2")}</span
+            >{t("list_offres.text3")}
+        </p>
+        <h2>{t("list_offres.text4")}</h2>
     </div>
     <div class="list">
         {
-            offres.map(({ title, href, img, bgColor, accentColor }) => (
+            offres.map(({ title, href, img, text, bgColor, accentColor }) => (
                 <a class="ref-offres" href={localizePath(href)}>
                     <figure
                         class="cards"
                         style={`--bg: hsl(${bgColor} calc(60% - (var(--hover) * 10%))); --accent: ${accentColor}`}
                     >
-                        <img src={img} alt="" />
+                        <img src={img} alt={text} />
 
-                        <div>
-                            <span class="title-cards">{t(title)}</span>
-                        </div>
+                        <figcaption>{t(title)}</figcaption>
                     </figure>
                 </a>
             ))
@@ -42,10 +44,13 @@ import { t } from "i18next";
         display: contents;
     }
     .up-text {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
         text-align: center;
-        margin-bottom: 50px;
+        margin-bottom: 20px;
     }
-    .up-text h6 {
+    .up-text p {
         color: var(--color);
         opacity: 0.7;
         letter-spacing: 1px;
@@ -53,22 +58,17 @@ import { t } from "i18next";
         font-size: 12px;
         text-transform: uppercase;
     }
-    .up-text h5 {
+    .up-text h2 {
         color: var(--color);
         font-weight: 400;
-        font-size: 36px;
+        width: 80%;
+        font-size: 40px;
     }
-    .title-cards {
+    figcaption {
         font-weight: bold;
         color: white;
-        font-size: 22px;
-    }
-    h1 {
-        position: fixed;
-        right: 1rem;
-        bottom: 1rem;
-        opacity: 0.5;
-        margin: 0;
+        font-size: inherit;
+        line-height: 1.25;
     }
 
     p {
@@ -84,12 +84,17 @@ import { t } from "i18next";
     .cards {
         border: 1px solid whitesmoke;
         cursor: pointer;
-        box-shadow: 0px 2px 1px -1px rgb(0 0 0 / 20%), 0px 1px 1px 0px rgb(0 0 0 / 14%),
-            0px 1px 3px 0px rgb(0 0 0 / 12%);
-        box-shadow: 0px 3px 3px -2px rgb(0 0 0 / 20%), 0px 3px 4px 0px rgb(0 0 0 / 14%),
-            0px 1px 8px 0px rgb(0 0 0 / 12%);
+        box-shadow: 0px 2px 1px -1px rgb(0 0 0 / 20%),
+            0px 1px 1px 0px rgb(0 0 0 / 14%), 0px 1px 3px 0px rgb(0 0 0 / 12%);
+        box-shadow: 0px 3px 3px -2px rgb(0 0 0 / 20%),
+            0px 3px 4px 0px rgb(0 0 0 / 14%), 0px 1px 8px 0px rgb(0 0 0 / 12%);
         transition: background 0.2s;
-        background: radial-gradient(circle at top left, var(--accent), transparent 100%), var(--bg);
+        background: radial-gradient(
+                circle at top left,
+                var(--accent),
+                transparent 100%
+            ),
+            var(--bg);
         width: 50%;
         aspect-ratio: 6 / 5;
         margin: 5px;
@@ -118,10 +123,13 @@ import { t } from "i18next";
         position: absolute;
         text-align: center;
         margin: auto;
-        left: 50%;
-        width: 40%;
-        bottom: 0px;
-        transform: translateX(calc(var(--hover) * -15%)) scale(calc(1 + (var(--hover) * 0.2)));
+        width: 50%;
+        max-width: 200px;
+        min-width: 100px;
+        right: 0;
+        bottom: 0;
+        transform: translateX(calc(var(--hover) * -15%))
+            scale(calc(1 + (var(--hover) * 0.2)));
         transition: transform 0.2s;
     }
 

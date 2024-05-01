@@ -6,17 +6,20 @@ import LogoOnly from "../Img/LogoOnly.astro";
 ---
 
 <div class="flex-wrap">
-    <div class="img">
+    <div>
         <LogoOnly />
     </div>
     <div class="text">
         <div>
             <div>
-                <h5><span class="text-gradient">{t("start.text1")}</span>{t("start.text2")}</h5>
-                <br />
-                <h6>
+                <h1>
+                    <span class="text-gradient">{t("start.text1")}</span>{
+                        t("start.text2")
+                    }
+                </h1>
+                <p>
                     {t("start.text3")}
-                </h6>
+                </p>
             </div>
             <br />
             <a href={localizePath("/contact")} class="href-start">
@@ -30,29 +33,9 @@ import LogoOnly from "../Img/LogoOnly.astro";
     .href-start {
         text-decoration: none;
     }
-
-    .under-explications {
-        width: 70%;
-        display: block;
-        margin: auto;
-        padding-top: 50px;
-        padding-bottom: 50px;
-    }
-    .explications a {
-        display: initial;
-    }
-
-    .text > div {
-        width: 80%;
-        margin: auto;
-    }
-    .img > img {
-        margin: auto;
-    }
     .flex-wrap {
         display: flex;
-        margin-bottom: 40px;
-        height: 75vh;
+        margin: 40px;
     }
     .flex-wrap > * {
         flex: 0.5;
@@ -64,15 +47,8 @@ import LogoOnly from "../Img/LogoOnly.astro";
         text-align: center;
         margin: auto;
     }
-    main {
-        margin: auto;
-        padding: 1.5rem;
-        max-width: 60ch;
-    }
     h1 {
-        font-size: 3rem;
-        font-weight: 800;
-        margin: 0;
+        line-height: 1.5;
     }
     .text-gradient {
         background-image: var(--accent-gradient);
@@ -83,7 +59,7 @@ import LogoOnly from "../Img/LogoOnly.astro";
         font-weight: bold;
         font-size: 1.2em;
     }
-    @media screen and (max-width: 767px) {
+    @media screen and (max-width: 800px) {
         .flex-wrap {
             display: block;
             height: auto;

@@ -16,7 +16,12 @@ const localizePath = localizePathByLang(lang);
         <div class="sm-handle">
             {
                 data.map((item) => (
-                    <a href={item.link} class="sm-button" target="_blank" aria-label={`Link to ${item.title}`}>
+                    <a
+                        href={item.link}
+                        class="sm-button"
+                        target="_blank"
+                        aria-label={`Link to ${item.title}`}
+                    >
                         <div class="wrapper" title={item.title}>
                             <i class={`fab ${item.icon}`} />
                         </div>
@@ -28,12 +33,15 @@ const localizePath = localizePathByLang(lang);
             <Logo />
 
             <div class="paragraph-tiny">
-                <p><a href={localizePath("/legal")} class="w--current">{t("footer.text1")}</a></p>
+                <p>
+                    <a href={localizePath("/legal")} class="w--current"
+                        >{t("footer.text1")}</a>
+                </p>
                 <p>
                     {t("footer.copyright")}
                     {year}
                 </p>
-                <p>{mail}</p>
+                <a href={"mailto:" + mail}>{mail}</a>
             </div>
         </div>
     </div>
