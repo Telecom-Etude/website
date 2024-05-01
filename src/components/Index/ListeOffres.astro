@@ -19,13 +19,13 @@ import { t } from "i18next";
     </div>
     <div class="list">
         {
-            offres.map(({ title, href, img, text, bgColor, accentColor }) => (
+            offres.map(({ title, href, img, alt, bgColor, accentColor }) => (
                 <a class="ref-offres" href={localizePath(href)}>
                     <figure
                         class="cards"
                         style={`--bg: hsl(${bgColor} calc(60% - (var(--hover) * 10%))); --accent: ${accentColor}`}
                     >
-                        <img src={img} alt={text} />
+                        <img src={img} alt={alt} />
 
                         <figcaption>{t(title)}</figcaption>
                     </figure>

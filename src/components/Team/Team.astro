@@ -1,16 +1,14 @@
 ---
-import imgOrga from "../../website-data/imgs/organigramme.png";
+import imgOrga from "../../website-data/imgs/organigramme.jpeg";
 import Bureau from "./Bureau.astro";
-import imgPolitique from "../../website-data/imgs/politique_qualite.png"; 
+import imgPolitique from "../../website-data/imgs/politique_qualite.png";
 
 import { t } from "i18next";
 ---
 
 <h2>{t("team.title2")}</h2>
 <section id="cards-section" class="cards-section">
-    <div class="centered-container w-container">
-        <Bureau />
-    </div>
+    <Bureau />
     <div class="img-orga">
         <img src={imgOrga} width="100%" alt="organisation" />
     </div>
