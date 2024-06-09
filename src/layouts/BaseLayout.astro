@@ -8,6 +8,7 @@ export interface Props {
 const { title } = Astro.props;
 import faviconLink from "../website-data/imgs/favicon.png";
 import "../css/font-awesome.css";
+import Fonts from "../components/Fonts.astro";
 ---
 
 <!DOCTYPE html>
@@ -15,12 +16,7 @@ import "../css/font-awesome.css";
     <head>
         <Header title={t(title)} desc={t("description")} />
         <link rel="sitemap" href="/sitemap-index.xml" />
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-        <link
-            href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;300;400;600"
-            rel="stylesheet"
-        />
+        <Fonts />
         <link rel="icon" type="image/svg+xml" href={faviconLink} />
     </head>
     <body>
